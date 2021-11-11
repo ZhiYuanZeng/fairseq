@@ -190,7 +190,7 @@ class _FP16OptimizerMixin(object):
         self._sync_fp16_grads_to_fp32()
 
         grad_norm = self._multiply_factor * self.fp32_optimizer.clip_grad_norm(
-            0, aggregate_norm_fn
+            max_norm, aggregate_norm_fn
         )
 
         if self.scaler is not None:
